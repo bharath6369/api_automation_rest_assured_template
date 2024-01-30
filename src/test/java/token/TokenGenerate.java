@@ -1,5 +1,6 @@
 package token;
 
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
@@ -21,6 +22,7 @@ public class TokenGenerate {
     private String basicAuthorization;
 
     public static String createToken(String basicAuthorization, String userName,String password, String grantType){
+        RestAssured.useRelaxedHTTPSValidation();
         String   accessToken =  given()
                 .header("Authorization","Basic "+basicAuthorization)
                 .contentType(ContentType.URLENC)
@@ -34,8 +36,7 @@ public class TokenGenerate {
                 .extract()
                 .jsonPath()
                 .getString("access_token");
-        System.out.println(grantType);
-        System.out.println(accessToken);
+
         return accessToken;
 
 
@@ -46,4 +47,3 @@ public class TokenGenerate {
 
 
     }
-
