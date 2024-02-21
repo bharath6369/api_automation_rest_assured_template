@@ -1,4 +1,4 @@
-package util;
+package com.project.util;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;

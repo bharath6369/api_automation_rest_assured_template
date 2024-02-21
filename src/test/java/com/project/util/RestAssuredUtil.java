@@ -1,4 +1,4 @@
-package util;
+package com.project.util;
 
 import static io.restassured.RestAssured.given;
 

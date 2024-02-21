@@ -1,4 +1,4 @@
-package token;
+package com.project.token;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -11,8 +11,8 @@ import java.util.Properties;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.replaceFiltersWith;
 import static org.hamcrest.Matchers.notNullValue;
-import static token.Constant.BASE_URL;
-import static token.Constant.END_POINT_TOKEN_GENERATE;
+import static com.project.token.Constant.BASE_URL;
+import static com.project.token.Constant.END_POINT_TOKEN_GENERATE;
 
 public class TokenGenerate {
 
@@ -32,7 +32,7 @@ public class TokenGenerate {
                 .when()
                 .post(BASE_URL+END_POINT_TOKEN_GENERATE)
                 .then()
-                .log().all()
+                //.log().all()  there is no need of this line
                 .extract()
                 .jsonPath()
                 .getString("access_token");
